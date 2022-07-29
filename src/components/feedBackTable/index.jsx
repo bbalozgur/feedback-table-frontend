@@ -19,12 +19,16 @@ const columns = [
       },
 ];
 
+const getClearLocationPath = () => {
+  return window.location.pathname.split('').splice(1, window.location.pathname.length - 1).join('');
+}
+
 const FeedBackTable = () => {
     const [feedBackData, setFeedBackData] = useState([]);
 
     useEffect(() => {
-      const locationPath = window.location.pathname;
-        fetch(`http://localhost:3400/v1/feedback/${locationPath}`, {
+      const locationPath = getClearLocationPath();
+        fetch(`${process.env.REACT_APP_FEEDBACK_SERVICE}/v1/feedback/${locationPath}`, {
             method: 'GET',
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
           })
