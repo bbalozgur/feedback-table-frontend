@@ -1,11 +1,11 @@
-import { Feedbacky } from 'feedbacky-ty';
+import { Feedback } from 'feedbacky-ty';
 
 import FeedBackTablePage from './containers/index';
 
 function App() {
   return (
     <>
-      <Feedbacky />
+      <Feedback />
       <FeedBackTablePage />
     </>
   );
