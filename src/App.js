@@ -1,32 +1,37 @@
-import { useState } from 'react';
 import  { Feedback } from 'feedbacky-ty';
 
 import FeedBackTablePage from './containers/index';
 
-function App() {
-  const [isFeedback, setIsFeedback] = useState(null);
-
-  const handleSubmitFeedback = (feedback)  => {
-    fetch(`${process.env.REACT_APP_FEEDBACK_SERVICE}/v1/feedback`, {
+const submitFeedback = async ({feedback}) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_FEEDBACK_SERVICE}/v1/feedback`, {
       method: 'POST',
       body: JSON.stringify({
         feedback,
     }),
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-    })
-    .then(res => {
-      setIsFeedback(true);
-      console.log('feedback:', res);
-    })
-    .catch(err => {
-      setIsFeedback(false);
-      console.error(err)
     });
+
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Unable to send feedback: ${error}`)
+  }
+}
+
+function App() {
+  const handleSubmitFeedback = async (feedback)  => {
+    try {
+      const response = await submitFeedback({feedback});
+      console.log('response', response);
+      return response;
+    } catch (error) {
+      console.error(`An error ocurred while sending feedback: ${error.message}`) 
+    }
   }
   return (
     <>
-      <Feedback onSubmit={handleSubmitFeedback} shouldCloseAfterSubmit={isFeedback} />
-      <FeedBackTablePage isFeedback={isFeedback} />
+      <Feedback onSubmit={handleSubmitFeedback} />
+      <FeedBackTablePage />
     </>
   );
 }
