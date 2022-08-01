@@ -2,9 +2,9 @@ import { memo } from 'react';
 
 import FeedBackTable from '../components/feedBackTable/index.jsx';
 
-const FeedBackTablePage = () => {
+const FeedBackTablePage = (isFeedback) => {
     return (
-       <FeedBackTable />
+       <FeedBackTable isFeedback={isFeedback} />
     );
 };
 

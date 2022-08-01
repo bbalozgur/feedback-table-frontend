@@ -23,7 +23,7 @@ const getClearLocationPath = () => {
   return window.location.pathname.split('').splice(1, window.location.pathname.length - 1).join('');
 }
 
-const FeedBackTable = () => {
+const FeedBackTable = (isFeedback) => {
     const [feedBackData, setFeedBackData] = useState([]);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const FeedBackTable = () => {
         .then(response => response.json())
         .then(data => setFeedBackData(data))
         .catch(err => console.error(err));
-    }, []);
+    }, [isFeedback]);
 
     return (
         <>
