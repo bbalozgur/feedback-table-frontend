@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Github Owner
+
+You can view the feedback when you enter the host as the path in the url part.
+--> https://github.com/bbalozgur/feedback-table-frontend
+example feedback --> http://localhost:3000/feedbacky-service.herokuapp.com
