@@ -71,6 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Github Owner
 
+You should add env. REACT_APP_FEEDBACK_SERVICE=https://feedbacky-service.herokuapp.com
 You can view the feedback when you enter the host as the path in the url part.
 --> https://github.com/bbalozgur/feedback-table-frontend
 example feedback --> http://localhost:3000/feedbacky-service.herokuapp.com
